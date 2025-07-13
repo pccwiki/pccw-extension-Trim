@@ -1,15 +1,27 @@
-"ResourceModules": {
-	"ext.trimtag": {
-		"scripts": "resources/trim.js",
-		"targets": [ "desktop", "mobile" ]
-	}
-},
-"ResourceModuleScripts": [],
-"ResourceFileModulePaths": {
-	"localBasePath": "resources",
-	"remoteExtPath": "TrimTag/resources"
-},
-"Hooks": {
-	"ParserFirstCallInit": "TrimTag\\Hooks::onParserFirstCallInit",
-	"BeforePageDisplay": "TrimTag\\Hooks::onBeforePageDisplay"
+{
+  "name": "TrimTag",
+  "version": "1.0.0",
+  "author": "pccwiki",
+  "description": "Adds a <trim> tag that wraps or modifies <p> output with data-trim support",
+  "type": "parserhook",
+  "license-name": "MIT",
+  "AutoloadClasses": {
+    "TrimTag\\Hooks": "includes/Hooks.php"
+  },
+  "Hooks": {
+    "ParserFirstCallInit": "TrimTag\\Hooks::onParserFirstCallInit",
+    "BeforePageDisplay": "TrimTag\\Hooks::onBeforePageDisplay"
+  },
+  "ResourceModules": {
+    "ext.trimtag": {
+      "scripts": "trim.js",
+      "styles": "trim.css",
+      "targets": [ "desktop", "mobile" ]
+    }
+  },
+  "ResourceFileModulePaths": {
+    "localBasePath": "resources",
+    "remoteExtPath": "TrimTag/resources"
+  },
+  "manifest_version": 2
 }
