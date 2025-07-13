@@ -1,19 +1,39 @@
+:root {
+	--trim-wrapper-space-0: 0;
+	--trim-wrapper-space-1: 0.5em;
+	--trim-wrapper-indent: 0;
+}
+
+/* Baseline definition with overrideable per-instance spacing */
 p.trim-wrapper,
 p[data-trim="true"] {
-	text-indent: 0;
-	margin-block: 0.5em;
+	--applied-space-top: var(--trim-wrapper-space-1);
+	--applied-space-bottom: var(--trim-wrapper-space-1);
+	text-indent: var(--trim-wrapper-indent);
+	margin-block-start: var(--applied-space-bottom);
+	margin-block-end: var(--applied-space-bottom);
 }
 
+/* First paragraph */
 .mw-parser-output > p.trim-wrapper:first-of-type {
-	margin-block-start: 0;
-	margin-block-end: 0.05em;
+	--applied-space-top: var(--trim-wrapper-space-0);
+	--applied-space-bottom: var(--trim-wrapper-space-1);
 }
 
+/* Middle paragraph */
+.mw-parser-output > p.trim-wrapper:not(:first-of-type):not(:last-of-type) {
+	--applied-space-top: var(--trim-wrapper-space-1);
+	--applied-space-bottom: var(--trim-wrapper-space-1);
+}
+
+/* Last paragraph */
 .mw-parser-output > p.trim-wrapper:last-of-type {
-	margin-block-start: 0.05em;
-	margin-block-end: 0;
+	--applied-space-top: var(--trim-wrapper-space-1);
+	--applied-space-bottom: var(--trim-wrapper-space-0);
 }
 
+/* Only paragraph */
 .mw-parser-output > p.trim-wrapper:only-of-type {
-	margin-block: 0;
+	--applied-space-top: var(--trim-wrapper-space-0);
+	--applied-space-bottom: var(--trim-wrapper-space-0);
 }
