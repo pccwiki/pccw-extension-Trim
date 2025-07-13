@@ -1,3 +1,4 @@
+<?php
 namespace TrimTag;
 
 use Parser;
