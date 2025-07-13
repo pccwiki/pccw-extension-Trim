@@ -1,0 +1,15 @@
+"ResourceModules": {
+	"ext.trimtag": {
+		"scripts": "resources/trim.js",
+		"targets": [ "desktop", "mobile" ]
+	}
+},
+"ResourceModuleScripts": [],
+"ResourceFileModulePaths": {
+	"localBasePath": "resources",
+	"remoteExtPath": "TrimTag/resources"
+},
+"Hooks": {
+	"ParserFirstCallInit": "TrimTag\\Hooks::onParserFirstCallInit",
+	"BeforePageDisplay": "TrimTag\\Hooks::onBeforePageDisplay"
+}
